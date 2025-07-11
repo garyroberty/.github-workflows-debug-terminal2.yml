@@ -1,0 +1,17 @@
+name: Sessão de Debug com Terminal
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest-96-cores
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Iniciar sessão de terminal com tmate
+        if: always()
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
